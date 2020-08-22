@@ -12,6 +12,7 @@ namespace withdraw_exception
             try
             {
                 Console.WriteLine("Enter account data");
+                Console.WriteLine();
 
                 Console.Write("Number: ");
                 int num_input = int.Parse(Console.ReadLine());
@@ -19,20 +20,20 @@ namespace withdraw_exception
                 Console.Write("Holder: ");
                 string name_input = Console.ReadLine();
 
-                Console.Write("Initial balance: ");
+                Console.Write("Initial balance: R$ ");
                 double init_bal_input = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
-                Console.Write("Withdraw limit: ");
+                Console.Write("Withdraw limit: R$ ");
                 double withdraw_limit = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
                 Account acc = new Account(num_input, name_input, init_bal_input, withdraw_limit);
 
-                Console.Write("Enter the amount for withdraw: ");
+                Console.Write("Enter the amount for withdraw: R$ ");
                 double withdraw_amount = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
                 try
                 {
                     acc.Withdraw(withdraw_amount);
-                    Console.WriteLine("New balance: " + acc.Balance.ToString("F2", CultureInfo.InvariantCulture));
+                    Console.WriteLine("New balance: R$ " + acc.Balance.ToString("F2", CultureInfo.InvariantCulture));
                 }
                 catch (AccountException e)
                 {
